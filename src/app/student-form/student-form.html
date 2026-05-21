@@ -1,0 +1,100 @@
+<div class="form-container">
+
+    <h1>Student Form</h1>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" formControlName="name" placeholder="Enter Name">
+
+            <div class="error" *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+
+                <div *ngIf="form.get('name')?.errors?.['required']">
+                    Name is required
+                </div>
+
+                <div *ngIf="form.get('name')?.errors?.['minlength']">
+                    Name required minimum 3 characters
+                </div>
+
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" formControlName="email" placeholder="Enter Email">
+
+            <div class="error" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+
+                <div *ngIf="form.get('email')?.errors?.['required']">
+                    Email is required
+                </div>
+
+                <div *ngIf="form.get('email')?.errors?.['email']">
+                    Invalid email format
+                </div>
+
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+            <label>Course</label>
+            <input type="text" formControlName="course" placeholder="Enter course">
+
+            <div class="error" *ngIf="form.get('course')?.invalid && form.get('course')?.touched">
+
+                <div *ngIf="form.get('course')?.errors?.['required']">
+                    Course Name is required
+                </div>
+
+                <div *ngIf="form.get('course')?.errors?.['minlength']">
+                    course required minimum 3 characters
+                </div>
+
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" formControlName="dob" placeholder="Enter date">
+
+            <div class="error" *ngIf="form.get('dob')?.invalid && form.get('dob')?.touched">
+
+                <div *ngIf="form.get('dob')?.errors?.['required']">
+                    dob is required
+                </div>
+
+                
+
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+            <label>Fee Amount</label>
+            <input type="number" formControlName="fees" placeholder="Enter fees amount">
+
+            <div class="error" *ngIf="form.get('fees')?.invalid && form.get('fees')?.touched">
+
+                <div *ngIf="form.get('fees')?.errors?.['required']">
+                    Fees number is required
+                </div>
+
+                
+
+            </div>
+        </div>
+
+        
+        <button type="submit" [disabled]="form.invalid">
+            Submit
+        </button>
+
+    </form>
+
+</div>

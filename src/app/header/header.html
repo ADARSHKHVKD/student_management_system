@@ -1,0 +1,32 @@
+<header>
+    <div>
+        
+
+        <nav class="navbar">
+            
+            <div class="logo">
+                Student Management System
+            </div>
+
+            <div class="nav-links">
+                <button (click)="CreateTab()" style="color: white;background-color: #468432;border: 0;">Create Student</button>
+
+                <button (click)="listTab()" style="color: white;background-color: #468432;border: 0;"  >Student List</button>
+            </div>
+
+        </nav>
+    </div>
+
+
+
+</header>
+<div *ngIf="createTabActive">
+<app-student-form></app-student-form> 
+
+
+</div>
+<div *ngIf="listTabActive">
+<app-student-list [students]="studentList"></app-student-list>
+
+
+</div>
