@@ -10,13 +10,23 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.css',
 })
 export class Header {
+ 
   studentList: any[] = [];
   createTabActive=true;
   listTabActive=false;
 
+  receiveStudent(student: any) {
+
+  this.studentList.push(student);
+
+  console.log(this.studentList);
+
+}
+
   listTab(){
     this.listTabActive=true;
     this.createTabActive=false;
+    console.log(this.studentList)
 
     
   }
@@ -26,6 +36,7 @@ export class Header {
 
 
   }
+  
 
   
 

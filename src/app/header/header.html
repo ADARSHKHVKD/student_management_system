@@ -1,5 +1,5 @@
-<header>
-    <div>
+<header >
+    <div style="position: sticky;">
         
 
         <nav class="navbar">
@@ -21,7 +21,7 @@
 
 </header>
 <div *ngIf="createTabActive">
-<app-student-form></app-student-form> 
+<app-student-form (addStudent)="receiveStudent($event)"></app-student-form>
 
 
 </div>

@@ -84,6 +84,9 @@
                 <div *ngIf="form.get('fees')?.errors?.['required']">
                     Fees number is required
                 </div>
+                <div *ngIf="form.get('fees')?.errors?.['pattern']">
+                    enter a valid amount
+                </div>
 
                 
 

@@ -1,4 +1,4 @@
-import { Component,OnInit ,Output } from '@angular/core';
+import { Component,OnInit ,Output,EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class StudentForm implements OnInit {
   
+@Output() addStudent = new EventEmitter<any>();
 
   studentList: any[] = [];
 
@@ -60,6 +61,8 @@ export class StudentForm implements OnInit {
         '',
         [
           Validators.required, 
+          // Validators.pattern('^\d+$')
+
           
         ]
       ]
@@ -72,6 +75,7 @@ export class StudentForm implements OnInit {
     if (this.form.valid) {
       console.log("form value:",this.form.value);
       this.studentList.push(this.form.value);
+       this.addStudent.emit(this.form.value);
 
       console.log(this.studentList);
       
